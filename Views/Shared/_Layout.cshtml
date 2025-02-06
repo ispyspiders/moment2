@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Att göra</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a  class="@GetActiveClass("Index") asp-controller="Home" asp-action="Index">Se lista</a>
+            </li>
+            <li>
+                <a  class="@GetActiveClass("Add") asp-controller="Home" asp-action="Add">Ny post</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>Moment 2 i Webbutveckling med .NET skapad av <a href="mailto:kacl1200@student.miun.se">Kajsa Classon</a>,
+            VT25.</p>
+    </footer>
+</body>
+
+</html>
+
+@functions {
+    public string GetActiveClass(string page)
+    {
+        @* Hämta aktuell sida från route-data *@
+        var currentPage = ViewContext.RouteData.Values["action"]?.ToString();
+        @* Om akytell sida matchar sätt klass till "active" *@
+        return currentPage != null && currentPage.Equals(page, StringComparison.OrdinalIgnoreCase) ? "active" : string.Empty;
+    }
+}
