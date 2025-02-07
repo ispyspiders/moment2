@@ -20,10 +20,10 @@
     <nav>
         <ul>
             <li>
-                <a  class="@GetActiveClass("Index") asp-controller="Home" asp-action="Index">Se lista</a>
+                <a class="@GetActiveClass("Index") asp-controller=" Home" asp-action="Index">Se lista</a>
             </li>
             <li>
-                <a  class="@GetActiveClass("Add") asp-controller="Home" asp-action="Add">Ny post</a>
+                <a class="@GetActiveClass("Add") asp-controller=" Home" asp-action="Add">Ny post</a>
             </li>
         </ul>
     </nav>
@@ -36,6 +36,7 @@
         <p>Moment 2 i Webbutveckling med .NET skapad av <a href="mailto:kacl1200@student.miun.se">Kajsa Classon</a>,
             VT25.</p>
     </footer>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

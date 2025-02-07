@@ -21,6 +21,16 @@ body {
     background-image: url(../images/bg.jpg);
 }
 
+main p a, main p a:visited {
+    color: var(--green-light);
+    font-weight: 400;
+}
+
+p {
+    color: var(--light);
+    text-align: center;
+}
+
 /* header */
 header {
     background-color: rgba(172, 197, 184, 0.8);
@@ -99,33 +109,37 @@ a:hover {
 footer p {
     font-size: 0.875rem;
     margin: 1rem;
+    color: var(--dark);
 }
 
 /* Todo */
 .todo{
     background-color: var(--green-dark);
     padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    margin: 1rem;
+    margin: 1rem auto;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     align-content: center;
+    max-width: 800px;
 }
 
 .todo p {
     color: var(--light);
     font-weight: 300;
-    margin: 0 0 1rem 35px;
+    margin: 0rem;
+    font-size: 1rem;
+    margin-left: 45px;
+    width: 100%;
+    text-align: left;
 }
 
 .controls{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
 }
 
 .controls button{
@@ -150,14 +164,13 @@ label.container {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 1rem;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: var(--light);
+    color: var(--light);    
 }
 
 /* Hide the browser's default checkbox */
@@ -230,7 +243,7 @@ label.container {
     width: 100%;
   }
 
-  input{
+  input, textarea{
     background-color: var(--light);
     padding: 0.5rem 1rem;
     border-radius: 8px;

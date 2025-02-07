@@ -1,13 +1,18 @@
+@using todo.Models
+@model Todo
 @{
-    ViewData["Title"] = "Lägg till ny att göra";
+  ViewData["Title"] = "Lägg till ny att göra";
 }
 
-  <form action="">
-        <label for="title">Titel</label>
-        <input type="text">
+<form method="post" asp-action="Add">
 
-        <label for="deadline">Deadline</label>
-        <input type="datetime-local" name="deadline" id="deadline">
+  <label for="Title">Titel</label>
+  <input type="text" id="Title" name="Title" value="@Model.Title">
 
-        <button type="submit">Lägg till</button>
-       </form>
+  <label for="Description">Beskrivning</label>
+  <textarea name="Description" id="Description" rows="4">@Model.Description</textarea>
+
+  <input type="hidden" value="false" id="IsCompleted">
+
+  <button type="submit">Lägg till</button>
+</form>

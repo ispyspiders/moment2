@@ -1,17 +1,34 @@
+@using todo.Models;
+
+@model List<Todo>
+
 @{
     ViewData["Title"] = "Att göra lista";
 }
 
+@if (Model.Count == 0)
+{
+    <p>Det finns inga uppgifter. <a asp-controller="Home" asp-action="Add">Lägg till en ny!</a></p>
+}
+else
+{
+    <div class="todo-list">
 
-<div class="todo">
-    <label for="item" class="container">
-        <input type="checkbox" name="item" id="item">
-        Titel på att göra
-        <span class="checkmark"></span>
-    </label>
-    <p>2025/02/10, kl 10.00</p>
-    <div class="controls">
-        <button>Radera</button>
-        <button>Ändra</button>
+    @foreach (var todo in Model)
+        {
+            <div class="todo">
+                    <label for="item" class="container">
+                        <input type="checkbox" name="item" id="item" @(todo.IsCompleted ? "checked" : "")>
+                        @todo.Title
+                        <span class="checkmark"></span>
+                    </label>
+                <div class="controls">
+                    <button>Radera</button>
+                    <button>Ändra</button>
+                </div>
+                    <p>@todo.Description</p>
+            </div>
+        }
     </div>
-</div>
+
+}
