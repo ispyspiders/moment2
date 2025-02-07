@@ -26,6 +26,13 @@ namespace TodoApp
         public ActionResult Index()
         {
             var todos = GetTodosFromSession();
+            var todoCountViewModel = new TodoCount
+            {
+                TotalTodos = todos.Count,
+                CompletedTodos = todos.Count(t => t.IsCompleted)
+            };
+            // Skicka todo count med ViewData
+            ViewData["TodoCount"] = todoCountViewModel;
             return View(todos);
         }
 
@@ -54,6 +61,8 @@ namespace TodoApp
             }
             return View(newTodo);
         }
+
+
 
     }
 }

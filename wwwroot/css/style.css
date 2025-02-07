@@ -21,7 +21,12 @@ body {
     background-image: url(../images/bg.jpg);
 }
 
-main p a, main p a:visited {
+main {
+    padding: 1rem;
+}
+
+main p a,
+main p a:visited {
     color: var(--green-light);
     font-weight: 400;
 }
@@ -113,10 +118,11 @@ footer p {
 }
 
 /* Todo */
-.todo{
+.todo {
     background-color: var(--green-dark);
     padding: 1rem 1.25rem;
     margin: 1rem auto;
+    margin-top: 0;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
@@ -136,17 +142,17 @@ footer p {
     text-align: left;
 }
 
-.controls{
+.controls {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.controls button{
+.controls button {
     margin-left: 2rem;
 }
 
-button{
+button {
     background-color: var(--success-light);
     border: 2px solid var(--success-light);
     padding: 8px 16px;
@@ -156,7 +162,7 @@ button{
     letter-spacing: 0.04375rem;
 }
 
-button:hover{
+button:hover {
     border-color: var(--success);
 }
 
@@ -170,7 +176,7 @@ label.container {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: var(--light);    
+    color: var(--light);
 }
 
 /* Hide the browser's default checkbox */
@@ -180,9 +186,9 @@ label.container {
     cursor: pointer;
     height: 0;
     width: 0;
-  }
+}
 
-  /* Create a custom checkbox */
+/* Create a custom checkbox */
 .checkmark {
     position: absolute;
     top: 0;
@@ -190,32 +196,32 @@ label.container {
     height: 25px;
     width: 25px;
     background-color: var(--light);
-  }
+}
 
-  /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
     background-color: var(--green-light);
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
     background-color: var(--success);
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
     display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .container .checkmark:after {
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
@@ -225,35 +231,53 @@ label.container {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}
 
-  /* Formulär */
-  form {
+/* Formulär */
+form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
     margin: 4rem auto;
+    margin-top: 2rem;
     padding: 1rem;
-  }
+}
 
-  form label{
+form label {
     color: var(--light);
     font-size: 1rem;
     margin-bottom: 0.5rem;
     width: 100%;
-  }
+}
 
-  input, textarea{
+input,
+textarea {
     background-color: var(--light);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     border: none;
     margin-bottom: 2rem;
     font-size: 1.25rem;
-  }
+}
 
-  form button {
+form button {
     width: fit-content;
     margin: auto;
     font-size: 1.25rem;
-  }
+}
+
+.count {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 830px;
+    margin: auto;
+    width: 100%;
+}
+
+.count p:first-child {
+    text-align: left;
+}
+.count p:last-child {
+    text-align: right;
+}

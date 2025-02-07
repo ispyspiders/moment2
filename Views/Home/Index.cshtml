@@ -12,21 +12,26 @@
 }
 else
 {
+    @* Visa partial view TodoCount *@
+    <div class="count">
+    @Html.Partial("_CompletedTodoCount", ViewData["TodoCount"])
+    @Html.Partial("_TodoCount", ViewData["TodoCount"])
+</div>
     <div class="todo-list">
 
     @foreach (var todo in Model)
         {
             <div class="todo">
-                    <label for="item" class="container">
-                        <input type="checkbox" name="item" id="item" @(todo.IsCompleted ? "checked" : "")>
-                        @todo.Title
-                        <span class="checkmark"></span>
-                    </label>
+                <label for="item" class="container">
+                    <input type="checkbox" name="item" id="item" @(todo.IsCompleted ? "checked" : "")>
+                    @todo.Title
+                    <span class="checkmark"></span>
+                </label>
                 <div class="controls">
                     <button>Radera</button>
                     <button>Ändra</button>
                 </div>
-                    <p>@todo.Description</p>
+                <p>@todo.Description</p>
             </div>
         }
     </div>
