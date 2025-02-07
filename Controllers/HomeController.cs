@@ -67,6 +67,19 @@ namespace TodoApp
             return View(newTodo);
         }
 
+        [HttpPost]
+        public IActionResult MarkComplete(int id)
+        {
+            var todos = GetTodosFromSession(); // läs in todos från session
+            var todo = todos.FirstOrDefault(t => t.Id == id); // hitta todo med rätt id
+
+            if (todo != null)
+            {
+                todo.IsCompleted = !todo.IsCompleted; // omvänd status
+                SaveTodosToSession(todos); // spara uppdaterad lista
+            }
+            return RedirectToAction("Index"); //återgå till todo-lista
+        }
 
 
     }

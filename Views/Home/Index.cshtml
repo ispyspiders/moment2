@@ -8,7 +8,7 @@
 
 @if (Model.Count == 0)
 {
-    <p >@ViewBag.Message</p>
+    <p>@ViewBag.Message</p>
     <p>Just nu finns det inga uppgifter. <a asp-controller="Home" asp-action="Add">Lägg till en ny</a></p>
 }
 else
@@ -23,11 +23,15 @@ else
     @foreach (var todo in Model)
         {
             <div class="todo">
-                <label for="item" class="container">
-                    <input type="checkbox" name="item" id="item" @(todo.IsCompleted ? "checked" : "")>
-                    @todo.Title
-                    <span class="checkmark"></span>
-                </label>
+                <form method="post" asp-action="MarkComplete">
+                    <input type="hidden" name="Id" value="@todo.Id" />
+                    <label for="item" class="container @(todo.IsCompleted ? "done" : "")">
+                        <input type="checkbox" name="item" id="item" @(todo.IsCompleted ? "checked" : "")
+                            onclick="this.form.submit()">
+                        @todo.Title
+                        <span class="checkmark"></span>
+                    </label>
+                </form>
                 <div class="controls">
                     <button>Radera</button>
                     <button>Ändra</button>
