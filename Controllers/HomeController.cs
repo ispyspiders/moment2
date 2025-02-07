@@ -81,6 +81,19 @@ namespace TodoApp
             return RedirectToAction("Index"); //återgå till todo-lista
         }
 
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var todos = GetTodosFromSession(); //Läs in todos från session
+            var todo = todos.FirstOrDefault(t => t.Id == id); // hitta todo med rätt id
+            if (todo != null)
+            {
+                todos.Remove(todo); // ta bort todo
+                SaveTodosToSession(todos); // spara uppdaterad lista
+            }
+            return RedirectToAction("Index"); //återgå till todo-lista
+        }
+
 
     }
 }

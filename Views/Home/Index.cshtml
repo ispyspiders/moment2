@@ -25,15 +25,18 @@ else
             <div class="todo">
                 <form method="post" asp-action="MarkComplete">
                     <input type="hidden" name="Id" value="@todo.Id" />
-                    <label for="item" class="container @(todo.IsCompleted ? "done" : "")">
-                        <input type="checkbox" name="item" id="item" @(todo.IsCompleted ? "checked" : "")
+                    <label for="item_@todo.Id" class="container @(todo.IsCompleted ? "done" : "")">
+                        <input type="checkbox" name="item_@todo.Id" id="item_@todo.Id" @(todo.IsCompleted ? "checked" : "")
                             onclick="this.form.submit()">
                         @todo.Title
                         <span class="checkmark"></span>
                     </label>
                 </form>
                 <div class="controls">
-                    <button>Radera</button>
+                    <form method="post" asp-action="Delete">
+                        <input type="hidden" name="Id" value="@todo.Id" />
+                        <button type="submit">Radera</button>
+                    </form>
                     <button>Ändra</button>
                 </div>
                 <p>@todo.Description</p>
