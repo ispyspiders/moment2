@@ -25,7 +25,12 @@ namespace TodoApp
         // Vy: Se todo-lista.
         public ActionResult Index()
         {
+            // Skicka meddelande med viewBag
+            ViewBag.Message = "Välkommen till Att göra-applikationen!";
+
+            // Läs in todos från session
             var todos = GetTodosFromSession();
+            // Läs in Todo count
             var todoCountViewModel = new TodoCount
             {
                 TotalTodos = todos.Count,
