@@ -49,6 +49,19 @@ namespace TodoApp
             return View(new Todo());
         }
 
+        // Redigera todo
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var todos = GetTodosFromSession(); // hämta todos från session
+            var todoToEdit = todos.FirstOrDefault(t => t.Id == id); // hitta todo med rätt id
+            if (todoToEdit == null)
+            {
+                return NotFound();
+            }
+            return View(todoToEdit); // Skicka todo till edit vyn
+        }
+
         // Lägg till ny todo
         [Route("/ny")]
         [HttpPost]
@@ -67,6 +80,7 @@ namespace TodoApp
             return View(newTodo);
         }
 
+        // Markera som klar
         [HttpPost]
         public IActionResult MarkComplete(int id)
         {
@@ -81,6 +95,8 @@ namespace TodoApp
             return RedirectToAction("Index"); //återgå till todo-lista
         }
 
+
+        // Radera todo
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -92,6 +108,26 @@ namespace TodoApp
                 SaveTodosToSession(todos); // spara uppdaterad lista
             }
             return RedirectToAction("Index"); //återgå till todo-lista
+        }
+
+        // Uppdatera todo
+        [HttpPost]
+        public IActionResult Edit(int id, Todo updatedTodo)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                return View(updatedTodo);
+            }
+            var todos = GetTodosFromSession();
+            var existingTodo = todos.FirstOrDefault(t=> t.Id == id);
+            if (existingTodo !=null ){
+                existingTodo.Title = updatedTodo.Title;
+                existingTodo.Description = updatedTodo.Description;
+                existingTodo.IsCompleted = updatedTodo.IsCompleted;
+                SaveTodosToSession(todos);
+            }
+            return RedirectToAction("Index");
         }
 
 

@@ -1,0 +1,23 @@
+@using todo.Models
+@model Todo
+@{
+    ViewData["Title"] = "Redigera uppgift";
+}
+
+<form method="post" asp-action="Edit">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <label for="Title">Titel</label>
+    <input type="text" id="Title" name="Title" value="@Model.Title">
+
+    <label for="Description">Beskrivning</label>
+    <textarea name="Description" id="Description" rows="4">@Model.Description</textarea>
+
+    <label for="item_@Model.Id" class="container">
+        <input type="checkbox" name="IsCompleted" id="item_@Model.Id" @(Model.IsCompleted ? "checked" : "") value="true"> <!-- Checkbox för avklarad -->
+        Avklarad
+        <span class="checkmark"></span>
+    </label>
+
+    <button type="submit">Spara ändringar</button>
+</form>

@@ -35,9 +35,12 @@ else
                 <div class="controls">
                     <form method="post" asp-action="Delete">
                         <input type="hidden" name="Id" value="@todo.Id" />
-                        <button type="submit">Radera</button>
+                        <button type="submit" class="delete">Radera</button>
                     </form>
-                    <button>Ändra</button>
+                    <form method="get" asp-action="Edit" asp-route-id="@todo.Id">
+
+                    <button type="submit" class="edit">Ändra</button>
+                    </form>
                 </div>
                 <p>@todo.Description</p>
             </div>

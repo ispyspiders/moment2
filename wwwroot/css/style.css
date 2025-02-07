@@ -160,6 +160,24 @@ footer p {
     margin-left: 2rem;
 }
 
+button.delete{
+    background-color: var(--danger-light);
+    border-color: var(--danger-light);
+    font-size: 0.875rem;
+}
+button.delete:hover{
+    border-color: var(--danger);
+}
+
+button.edit{
+    background-color: var(--warning-light);
+    border-color: var(--warning-light);
+    font-size: 0.875rem;
+}
+button.edit:hover{
+    border-color: var(--warning);
+}
+
 button {
     background-color: var(--success-light);
     border: 2px solid var(--success-light);
