@@ -19,7 +19,6 @@ body {
     margin: 0;
     background-color: var(--dark);
     background-image: url(../images/bg.jpg);
-    background-size:cover;
 }
 
 main {
