@@ -74,6 +74,7 @@ nav ul li a:hover {
 nav ul li:first-child a {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+    border-right: 1px solid var(--green);
 }
 
 nav ul li:last-child a {
@@ -158,6 +159,7 @@ footer p {
 
 .controls button {
     margin-left: 2rem;
+    margin-top: 0;
 }
 
 button.delete{
@@ -274,6 +276,7 @@ form label {
     color: var(--light);
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    margin-top: 2rem;
     width: 100%;
 }
 
@@ -283,7 +286,7 @@ textarea {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     border: none;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     font-size: 1.25rem;
 }
 
@@ -291,8 +294,19 @@ form button {
     width: fit-content;
     margin: auto;
     font-size: 1.25rem;
+    margin-top: 2rem;
 }
 
+.edit-check{
+    margin-top: 2rem!important;
+}
+
+span.danger {
+    color: var(--danger)!important;
+    font-size: 0.875rem;
+}
+
+/* Count */
 .count {
     display: flex;
     flex-direction: row;
@@ -308,4 +322,3 @@ form button {
 .count p:last-child {
     text-align: right;
 }
-

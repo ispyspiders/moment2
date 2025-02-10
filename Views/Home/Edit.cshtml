@@ -9,12 +9,16 @@
 
     <label for="Title">Titel</label>
     <input type="text" id="Title" name="Title" value="@Model.Title">
+    <span asp-validation-for="Title" class="danger"></span>
 
     <label for="Description">Beskrivning</label>
     <textarea name="Description" id="Description" rows="4">@Model.Description</textarea>
+    <span asp-validation-for="Description" class="danger"></span>
 
-    <label for="item_@Model.Id" class="container">
-        <input type="checkbox" name="IsCompleted" id="item_@Model.Id" @(Model.IsCompleted ? "checked" : "") value="true"> <!-- Checkbox för avklarad -->
+
+    <label for="item_@Model.Id" class="container edit-check">
+        <input type="checkbox" name="IsCompleted" id="item_@Model.Id" @(Model.IsCompleted ? "checked" : "")
+            value="true"> <!-- Checkbox för avklarad -->
         Avklarad
         <span class="checkmark"></span>
     </label>

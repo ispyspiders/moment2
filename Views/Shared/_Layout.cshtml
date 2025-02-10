@@ -36,6 +36,12 @@
         <p>Moment 2 i Webbutveckling med .NET skapad av <a href="mailto:kacl1200@student.miun.se">Kajsa Classon</a>,
             VT25.</p>
     </footer>
+    @section Scripts {
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.3/jquery.validate.min.js"></script>
+        <script
+            src="https://ajax.aspnetcdn.com/ajax/jquery.validate.unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    }
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

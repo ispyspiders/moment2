@@ -8,10 +8,14 @@
 
   <label for="Title">Titel</label>
   <input type="text" id="Title" name="Title" value="@Model.Title">
+  <span asp-validation-for="Title" class="danger"></span>
+
 
   <label for="Description">Beskrivning</label>
   <textarea name="Description" id="Description" rows="4">@Model.Description</textarea>
-  
+  <span asp-validation-for="Description" class="danger"></span>
+
+
   <input type="hidden" value="false" id="IsCompleted">
 
   <button type="submit">Lägg till</button>
