@@ -20,4 +20,5 @@ För Väl Godkänt (och ett extra poäng) måste applikationen även visa på f�
 * Skapa någon slags partial som laddas in och används i minst två Views.
 * Implementera en enkel validering för ett eller fler input-fält.
 * Använda minst tre olika typer av inmatnings-kontroller i vyn. Testa något mer än textbox: dropdownlist, radiobuttons, checkboxar eller liknande.
+
 Vidare krävs för att VG ska erhållas på laborationen att din framställning och praktiskta lösning håller god kvalitet, bra struktur och på ett sunt sätt förhåller sig till för kursen relevant material.
