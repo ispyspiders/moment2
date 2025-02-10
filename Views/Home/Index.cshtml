@@ -32,6 +32,7 @@ else
                         <span class="checkmark"></span>
                     </label>
                 </form>
+                <p>@todo.Description</p>
                 <div class="controls">
                     <form method="post" asp-action="Delete">
                         <input type="hidden" name="Id" value="@todo.Id" />
@@ -42,7 +43,6 @@ else
                         <button type="submit" class="edit">Ändra</button>
                     </form>
                 </div>
-                <p>@todo.Description</p>
             </div>
         }
     </div>
