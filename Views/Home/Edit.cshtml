@@ -4,6 +4,7 @@
     ViewData["Title"] = "Redigera uppgift";
 }
 
+<h2>@ViewData["Title"]</h2>
 <form method="post" asp-action="Edit">
     <input type="hidden" name="Id" value="@Model.Id" />
 

@@ -1,9 +1,10 @@
 @using todo.Models
 @model Todo
 @{
-  ViewData["Title"] = "Lägg till ny att göra";
+  ViewData["Title"] = "Lägg till ny uppgift";
 }
 
+<h2>@ViewData["Title"]</h2>
 <form method="post" asp-action="Add">
 
   <label for="Title">Titel</label>
