@@ -1,1 +1,7 @@
+@if (ViewData["TodoCount"] != null)
+{
 <p>Antal avklarade uppgifter: @Model.CompletedTodos / @Model.TotalTodos</p>
+}
+else {
+    <p>Antal avklarade uppgifter: 0</p>
+}
