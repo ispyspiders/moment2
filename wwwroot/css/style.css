@@ -17,12 +17,14 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: var(--green-dark);
+    background-color: var(--dark);
     background-image: url(../images/bg.jpg);
+    background-size:cover;
 }
 
 main {
     padding: 1rem;
+    padding-bottom: 4rem;
 }
 
 main p a,
@@ -44,11 +46,12 @@ header {
     align-items: center;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-weight: 400;
 }
 
-h2{
+h2 {
     text-align: center;
     color: var(--light);
     margin: auto;
@@ -158,6 +161,7 @@ footer p {
     margin: 0;
     padding: 0;
 }
+
 .controls {
     display: flex;
     align-items: center;
@@ -165,25 +169,26 @@ footer p {
 }
 
 .controls button {
-    margin-left: 2rem;
-    margin-top: 0;
+    margin: 0.5rem 0 0.5rem 2rem;
 }
 
-button.delete{
+button.delete {
     background-color: var(--danger-light);
     border-color: var(--danger-light);
     font-size: 0.875rem;
 }
-button.delete:hover{
+
+button.delete:hover {
     border-color: var(--danger);
 }
 
-button.edit{
+button.edit {
     background-color: var(--warning-light);
     border-color: var(--warning-light);
     font-size: 0.875rem;
 }
-button.edit:hover{
+
+button.edit:hover {
     border-color: var(--warning);
 }
 
@@ -274,7 +279,7 @@ form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    margin: 4rem auto;
+    margin: 2rem auto;
     margin-top: 0;
     padding: 1rem;
 }
@@ -304,12 +309,12 @@ form button {
     margin-top: 2rem;
 }
 
-.edit-check{
-    margin-top: 2rem!important;
+.edit-check {
+    margin-top: 2rem !important;
 }
 
 span.danger {
-    color: var(--danger)!important;
+    color: var(--danger) !important;
     font-size: 0.875rem;
 }
 
@@ -326,6 +331,7 @@ span.danger {
 .count p:first-child {
     text-align: left;
 }
+
 .count p:last-child {
     text-align: right;
 }

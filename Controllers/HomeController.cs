@@ -46,6 +46,17 @@ namespace TodoApp
         [HttpGet]
         public IActionResult Add()
         {
+            // Läs in todos från session
+            var todos = GetTodosFromSession();
+            // Läs in Todo count
+            var todoCountViewModel = new TodoCount
+            {
+                TotalTodos = todos.Count,
+                CompletedTodos = todos.Count(t => t.IsCompleted)
+            };
+            // Skicka todo count med ViewData
+            ViewData["TodoCount"] = todoCountViewModel;
+
             return View(new Todo());
         }
 
@@ -59,6 +70,14 @@ namespace TodoApp
             {
                 return NotFound();
             }
+            // Läs in Todo count
+            var todoCountViewModel = new TodoCount
+            {
+                TotalTodos = todos.Count,
+                CompletedTodos = todos.Count(t => t.IsCompleted)
+            };
+            // Skicka todo count med ViewData
+            ViewData["TodoCount"] = todoCountViewModel;
             return View(todoToEdit); // Skicka todo till edit vyn
         }
 
@@ -120,8 +139,9 @@ namespace TodoApp
                 return View(updatedTodo);
             }
             var todos = GetTodosFromSession();
-            var existingTodo = todos.FirstOrDefault(t=> t.Id == id);
-            if (existingTodo !=null ){
+            var existingTodo = todos.FirstOrDefault(t => t.Id == id);
+            if (existingTodo != null)
+            {
                 existingTodo.Title = updatedTodo.Title;
                 existingTodo.Description = updatedTodo.Description;
                 existingTodo.IsCompleted = updatedTodo.IsCompleted;
